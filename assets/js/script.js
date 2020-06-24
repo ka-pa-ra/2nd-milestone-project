@@ -3,7 +3,27 @@ const cards = document.querySelectorAll('.memory-card');
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
+let lives;
 
+function init(){
+    lives = 3;
+    update();
+}
+
+window.onload = init;
+
+function update(){
+    let remain = document.getElementById("remain");
+    remain.innerText = lives;
+}
+
+function decFunc(){
+    lives--;
+    update();
+    if(lives===0){
+        alert("Game over");
+    }
+}
 function flipCard() {
     if (lockBoard) return;
     if (this === firstCard) return;
@@ -48,11 +68,15 @@ function flipCard() {
      resetBoard();
    }, 1500);
  }
-
  function resetBoard() {
    [hasFlippedCard, lockBoard] = [false, false];
    [firstCard, secondCard] = [null, null];
+   decFunc();
  }
+ function resetGame() {
+   location.reload();
+ }
+
 
  (function shuffle() {
    cards.forEach(card => {
@@ -60,6 +84,5 @@ function flipCard() {
      card.style.order = ramdomPos;
    });
  })();
-
 cards.forEach(card => card.addEventListener('click', flipCard));
 
