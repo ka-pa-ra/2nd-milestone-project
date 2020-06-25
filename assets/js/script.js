@@ -4,9 +4,12 @@ let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 let lives;
+let scorePoints;
 
+  
 function init(){
-    lives = 3;
+    lives = 30;
+    scorePoints = 0;
     update();
 }
 
@@ -14,6 +17,8 @@ window.onload = init;
 
 function update(){
     let remain = document.getElementById("remain");
+    let score = document.getElementById("score");
+    score.innerText = scorePoints;
     remain.innerText = lives;
 }
 
@@ -24,6 +29,18 @@ function decFunc(){
         alert("Game over");
     }
 }
+function incremScore(){
+    scorePoints = scorePoints+5;
+    update();
+    if(scorePoints === 10){
+        alert("Well done ");
+    }
+}
+function decScore(){
+    scorePoints = scorePoints-2;
+    update();
+}
+
 function flipCard() {
     if (lockBoard) return;
     if (this === firstCard) return;
@@ -43,6 +60,7 @@ function flipCard() {
 
  function checkForMatch() {
    if (firstCard.dataset.framework === secondCard.dataset.framework) {
+       incremScore();
      disableCards();
      return;
    }
@@ -57,6 +75,13 @@ function flipCard() {
    resetBoard();
  }
 
+ function showCards() {
+    lockBoard = true;
+
+   setTimeout(() => {
+     cards.classList.add('flip');
+   }, 1500);
+ }
  function unflipCards() {
     lockBoard = true;
 
@@ -72,6 +97,7 @@ function flipCard() {
    [hasFlippedCard, lockBoard] = [false, false];
    [firstCard, secondCard] = [null, null];
    decFunc();
+   decScore();
  }
  function resetGame() {
    location.reload();
