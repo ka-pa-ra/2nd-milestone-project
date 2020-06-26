@@ -56,3 +56,76 @@ span{
 .front-face {
   transform: rotateX(180deg);
 }
+
+.score-panel {
+    text-align: left;
+    width: 660px;
+    margin-bottom: 10px;
+}
+
+.score-panel .stars,
+.modal .stars
+{
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+    color: gold; 
+}
+
+.score-panel .stars li,
+.modal .stars li
+{
+    list-style: none;
+    display: inline-block;
+}
+
+.score-panel .restart {
+    float: right;
+    display: inline-block;
+    margin :0 0 0 80px;
+    cursor: pointer;
+}
+
+.score-panel .timer {
+    margin: 0 0 0 50px;
+    display: inline-block;
+     
+    
+}
+
+.modal {
+    display: none;
+    top : 0;
+    right : 0;
+    bottom : 0;
+    left : 0;
+    position: fixed;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+    max-width: 360px;
+    padding : 40px;
+    margin: 5em auto;
+    border-radius: 10px;
+    background-color: cyan;
+    
+}
+
+.modal-title {
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0;
+    font-weight: 400;
+}
+
+.modal-elements {
+    display: inline-block;
+    align-items: center;
+}
+
+.modal-message {
+    font-size: 2em;
+    text-align: center;
+}

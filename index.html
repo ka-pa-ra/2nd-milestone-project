@@ -12,6 +12,44 @@
 <body>
 <section>
 <div class="container">
+    <header>
+    <section class="score-panel">
+
+        <ul class="stars">
+    <li><i class="fa fa-star"></i></li>
+    <li><i class="fa fa-star"></i></li>
+    <li><i class="fa fa-star"></i></li>
+    </ul>
+     <p>Moves : <span id="score"></span></p>
+        <div class="restart">
+        RESTART
+    <i class="fa fa-repeat"></i>
+            </div>
+
+        <span class="timer">
+
+        00:00:00
+
+        </span>
+    </section>
+    </header>
+   <div class="modal">
+   <div class="modal-content">
+       <h2 class="modal-title">Congratulations !</h2>
+       <p class="modal-message">You won !</p>
+  <div class="modal-element">
+      <span>Time :</span>
+       </div>
+       <div class="modal-element">
+           <span>Moves :</span>
+       </div>
+       <div class="modal-element">
+           <span> Stars :</span> 
+        </div>
+       </div>
+    </div>
+   </div>
+<div class="container">
   <div class="row ">
     <div class="col-md-8 memory-game">
   <div class="memory-card" data-framework="madonna">
@@ -93,7 +131,6 @@
     </div>
   </div>
 </div>
-  <h1>SCORE : <span id="score"></span></h1>
 
 </section>
 
